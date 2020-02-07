@@ -24,14 +24,6 @@ module.exports = {
         'test',
         'wip',
       ],
-    ],
-    'scope-enum': [
-      2,
-      'always', [
-        'web',
-        'backend',
-        'api'
-      ]
     ]
   },
 };
