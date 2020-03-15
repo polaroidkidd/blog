@@ -607,9 +607,9 @@ Pros for Interfaces:
  
  Helpful -> https://www.educba.com/typescript-type-vs-interface/
  
- What ever you choose, ***stick to it!***
+What ever you choose, ***stick to it!***
  
- ## Libraries & Types
+## Libraries & Types
  
  Basically, when you install a third party library, which doesn't have types you have two options.
  
