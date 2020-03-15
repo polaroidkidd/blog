@@ -6,6 +6,8 @@ This contents of this repo is based off of the excellent [course](https://www.sc
 
 **Date: 07.02.2020**
 
+## ToC
+
  - [Typed Props](#typed-props)
  - [Default & Optional Props](#default--optional-props)
  - [Types](#types)
@@ -29,7 +31,7 @@ This contents of this repo is based off of the excellent [course](https://www.sc
 
 `type Props` can be declared as a `type` or as an `interface`. 
 
-What should I use? According to [this](https://medium.com/@koss_lebedev/type-aliases-vs-interfaces-in-typescript-based-react-apps-e77c9a1d5fd0)
+What should I use? According to [this article](https://medium.com/@koss_lebedev/type-aliases-vs-interfaces-in-typescript-based-react-apps-e77c9a1d5fd0)
 
   >  If you write object-oriented code — use interfaces, if you write functional code — use type aliases.
 
@@ -171,7 +173,7 @@ const App: React.FC = () => {
   return (
     <>
       <Header
-        title={'Hello'}
+        title="{'Hello'}"
       />
       <Button
         onClick={(text) => {
@@ -254,7 +256,7 @@ import React from 'react';
 export const Input = () => {
   const [name, setName] = React.useState('');
   return (
-    <input value={name} onChange={e => setName(e.target.value)}/>
+    <input value="{name}" onChange={e => setName(e.target.value)}/>
   );
 };
 ```
@@ -268,7 +270,7 @@ export const Input = () => {
   const [name, setName] = useState<string | null>("");
   
   return (
-    <input value={name} onChange={e => setName(e.target.value)}/>
+    <input value="{name}" onChange={e => setName(e.target.value)}/>
   );
 };
 ```
@@ -290,7 +292,7 @@ export const Input = () => {
   console.log(ref?.current?.value);
   
   return (
-    <input ref={ref} value={name} onChange={e => setName(e.target.value)}/>
+    <input ref="{ref}" value="{name}" onChange={e => setName(e.target.value)}/>
   );
 };
 ```
@@ -516,7 +518,7 @@ export const GlobalProvider: React.FC = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialValues);
   
   return (
-    <GlobalContext.Provider value={{
+    <GlobalContext.Provider value="{{"
       rValue: state.rValue,
       // Functions have been added to the initialValues object. These are implicitly typed. 
       turnOn: () => dispatch({type: 'on'}),
@@ -546,7 +548,7 @@ export const ReducerButtons = () => {
     console.log('Clicked Outside'); // handler passed into useClickOutside
   });
   return (
-    <div ref={ref}>
+    <div ref="{ref}">
       // These functions are implicitly typed by the initialValues object in GlobalState.tsx
       <button onClick={turnOn}>Action One</button> 
       <button onClick={turnOff}>Action Two</button>
@@ -604,20 +606,21 @@ Pros for Interfaces:
   * Better when authoring a library
   * Extendable
   * Can be augmented
- 
- Helpful -> https://www.educba.com/typescript-type-vs-interface/
- 
-What ever you choose, ***stick to it!***
+
+
+[Here](https://www.educba.com/typescript-type-vs-interface/) are some helpful tips and tricks to help you decide. In the end, what ever you choose, ***stick to it!***
  
 ## Libraries & Types
  
- Basically, when you install a third party library, which doesn't have types you have two options.
+Basically, when you install a third party library, which doesn't have types you have two options.
  
-  1) Declare the types yourself in a `*.d.ts` file
-  2) Install the types (usually `@types/LIBRARYMANE`)
+  1. Declare the types yourself in a `*.d.ts` file
+  2. Install the types (usually `@types/LIBRARYMANE`)
+
+
+An example `*.d.ts` file can look as simple as this:
  
- An example `*.d.ts` file can look as simple as this:
- 
- ```typescript jsx
+```typescript jsx
 declare module 'styled-components' // This can allow you to use third-party un-typed libs.
 ```
+
