@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/polaroidkidd/blog/compare/v1.2.1...v1.2.2) (2020-03-15)
+
+
+### Bug Fixes
+
+* typos/syntax errors in React-TS-Intro article ([ad9c415](https://github.com/polaroidkidd/blog/commit/ad9c415ab8593ccd366382037c3b3d85b673d45c))
+
 ### [1.2.1](https://github.com/polaroidkidd/blog/compare/v1.2.0...v1.2.1) (2020-03-15)
 
 
