@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/polaroidkidd/blog/compare/v1.2.3...v1.2.4) (2020-04-18)
+
+
+### Bug Fixes
+
+* HTML parsing in markdown files ([bd6cbe2](https://github.com/polaroidkidd/blog/commit/bd6cbe234f4588762237500dac3a70e1d94dfff8))
+
 ### [1.2.3](https://github.com/polaroidkidd/blog/compare/v1.2.2...v1.2.3) (2020-04-17)
 
 
