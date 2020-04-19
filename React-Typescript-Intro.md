@@ -355,7 +355,7 @@ type ActionExtended =
 
 ```
 
-##  12. React.useEffect and Custom Hooks
+##  11. React.useEffect and Custom Hooks
 
 
 This custom hook es designed to execute some code depending on weather a ref is clicked or not (close modal type).
@@ -394,12 +394,12 @@ export { useClickOutside };
 ```
 
 
-##  13. generics
+##  12. generics
 
 By example of the `useClickOutside` hook. Before we declared its `ref` type as `ref: React.MutableRefObject<HTMLDivElement>`. This did work, but did not allow us to use it on elements other than `<div/>`. Because `HTMLDivElement` extends `HTMLElement`, we can declare the `ref` in the hook as `ref: React.MutableRefObject<HTMLElement>`. When it's actually used, the ref can contain any `HTMLElement` and TS will not throw any errors.
 
 
-##  14. Use Contextpart 1
+##  13. React.useContext
 
 TS implicitly types the declared context without having to type it. Below is an example implementation.
 
@@ -447,9 +447,7 @@ export const GlobalContext = createContext(initialValues);
 ```
 
 
-##  15. Use Contextpart 2
-
-We start off by updating the `GlobalState` component by creating a `GlobalProvider`. This saves us from 
+Next we update the `GlobalState` component by creating a `GlobalProvider`. This saves us from 
 having to import `initialValues` where ever we use it and can instead just wrap the `GlobalProvider` component.
 Additionally we refactored `GlobalState.tsx` to include the `useReducer` function from the `ReducerButtons.tsx` 
 component.
@@ -542,7 +540,7 @@ export const ReducerButtons = () => {
 ```
 
 
-##  16. Class Based Components
+##  14. Class Based Components
 
 Classes and FC are quite similar. The following example illustrates a simple example.
 
@@ -573,7 +571,7 @@ class BigC extends Component<Props, State> {
 export default BigC;
 ```
 
-##  17. Interfacesvs Types
+##  15. Interfacesvs Types
 
 The gist from several articles is
  > When you come from OOP, use `interface`, if you're into functional programming, go for `type`
@@ -593,7 +591,7 @@ Pros for Interfaces:
 
 [Here](https://www.educba.com/typescript-type-vs-interface/) are some helpful tips and tricks to help you decide. In the end, what ever you choose, ***stick to it!***
  
-##  18. Using untyped libraries
+##  16. Using untyped libraries
  
 Some libraries you'd like touse in your projects don't provide their own types. In this scenario you have two options:
  
