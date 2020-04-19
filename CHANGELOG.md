@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/polaroidkidd/blog/compare/v1.2.4...v1.2.5) (2020-04-19)
+
+
+### Bug Fixes
+
+* numering on React-Typescript-Intro.md ([ff1cae2](https://github.com/polaroidkidd/blog/commit/ff1cae25b601d571be427ab508ab61a4d364fac7))
+
 ### [1.2.4](https://github.com/polaroidkidd/blog/compare/v1.2.3...v1.2.4) (2020-04-18)
 
 
