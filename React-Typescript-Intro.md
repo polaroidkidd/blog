@@ -7,7 +7,25 @@ This contents of this blog are based off of the excellent [course](https://www.s
 
 **Date Edited: 17.04.2020**
 
-##  1. Overview
+## Table of Contents
+1. [Overview](#1.-Overview)
+2. [Typed Props](#2.-Typed-Props)
+3. [Default and/or Optional Props](#3.-Default-and/or-Optional-Props)
+4. [Types](#4.-Types)
+5. [Function Props](#5.-Function-Props)
+6. [React Events in TypeScript](#6.-React-Events-in-TypeScript)
+7. [Typing Children Props](#7.-Typing-Children-Props)
+8. [Typing React.useState](#8.-Typing-React.useState)
+9. [Using React.useRef and typing dom elements](#9.-Using-React.useRef-and-typing-dom-elements)
+10. [Using React.useReducer](#10.-Using-React.useReducer)
+11. [React.useEffect and Custom Hooks](#11.-React.useEffect-and-Custom-Hooks)
+12. [Generics](#12.-generics)
+13. [React.useContext](#13.-React.useContext)
+14. [Class Based Components](#14.-Class-Based-Components)
+15. [Interfaces vs Types](#15.-Interfacesvs-Types)
+16. [Using untyped libraries](#16.-Using-untyped-libraries)
+
+## 1. Overview
 
 After a quick introduction to Typescript I'll highlight some brief examples & explanations of Typescript usage with React Children, React Hooks and  HTMLElements (with and without React). 
 Finally I'll sum up the differences between `Interface` and `Type` (and when to use which) as well as showing how to use untyped libraries in Typescript projects.  
@@ -394,7 +412,7 @@ export { useClickOutside };
 ```
 
 
-##  12. generics
+##  12. Generics
 
 By example of the `useClickOutside` hook. Before we declared its `ref` type as `ref: React.MutableRefObject<HTMLDivElement>`. This did work, but did not allow us to use it on elements other than `<div/>`. Because `HTMLDivElement` extends `HTMLElement`, we can declare the `ref` in the hook as `ref: React.MutableRefObject<HTMLElement>`. When it's actually used, the ref can contain any `HTMLElement` and TS will not throw any errors.
 
@@ -571,7 +589,7 @@ class BigC extends Component<Props, State> {
 export default BigC;
 ```
 
-##  15. Interfacesvs Types
+##  15. Interfaces Types
 
 The gist from several articles is
  > When you come from OOP, use `interface`, if you're into functional programming, go for `type`
