@@ -2,6 +2,12 @@
 The contents of this article/summary are based off of the excelent course "[Advanced React Patterns](https://frontendmasters.com/courses/advanced-react-patterns/)" By Kent C. Dodds.
 
 
+**Author: Daniel Einars**
+
+**Date Published: 07.02.2020**
+
+**Date Edited: 17.04.2020**
+
 ## Intro
 This chapter serves as a small warm-up
 
