@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/polaroidkidd/blog/compare/v1.2.6...v1.3.0) (2020-08-22)
+
+
+### Features
+
+* release Advanced React Patterns V2 ([6be1d38](https://github.com/polaroidkidd/blog/commit/6be1d38a2847a46d681c48e5d01ed291c98af2b4))
+
 ### [1.2.6](https://github.com/polaroidkidd/blog/compare/v1.2.5...v1.2.6) (2020-04-21)
 
 
