@@ -4,9 +4,9 @@ The contents of this article/summary are based off of the excelent course "[Adva
 
 **Author: Daniel Einars**
 
-**Date Published: 07.02.2020**
+**Date Published: 26.08.2020**
 
-**Date Edited: 17.04.2020**
+**Date Edited: 26.08.2020**
 
 ## Intro
 This chapter serves as a small warm-up
