@@ -11,22 +11,22 @@ The contents of this article/summary are based off of the excelent course [Advan
 
 ## Table of Contents
 
-1. [Intro](#1-intro)\
+1. [Intro](#1-intro)
 1.1. [Basic Toggle Component](#11-basic-toggle-component)
-2. [Compound Components](#2-compound-components)\
- 2.1. [React Compound Component: Basic](#21-react-compound-component-basic)\
+2. [Compound Components](#2-compound-components)
+ 2.1. [React Compound Component: Basic](#21-react-compound-component-basic)
  2.2. [React Compound Component: Flexible](#22-react-compound-component-flexible)
-3. [Render Props](#3-render-props)\
- 3.1. [Render Props: Basic](#31-render-props-basic)\
- 3.2. [Render Props: Prop Collections](#32-render-props-prop-collections)\
+3. [Render Props](#3-render-props)
+ 3.1. [Render Props: Basic](#31-render-props-basic)
+ 3.2. [Render Props: Prop Collections](#32-render-props-prop-collections)
  3.3. [Render Props: Prop Getters](#33-render-props-prop-getters)
-4. [Controlling State](#4-controlling-state)\
- 4.1. [Controlling State: State Initializers](#41-controlling-state-state-initializers)\
- 4.2. [Controlling State: State Reducer](#42-controlling-state-state-reducer)\
- 4.3. [Controlling State: State Reducers with Change Types](#43-controlling-state-state-reducers-with-change-types)\
+4. [Controlling State](#4-controlling-state)
+ 4.1. [Controlling State: State Initializers](#41-controlling-state-state-initializers)
+ 4.2. [Controlling State: State Reducer](#42-controlling-state-state-reducer)
+ 4.3. [Controlling State: State Reducers with Change Types](#43-controlling-state-state-reducers-with-change-types)
  4.4. [Controlling State: Control Props](#44-controlling-state-control-props)
-5. [Provider Pattern](#5-provider-pattern)\
- 5.1. [Provider Pattern: Context API](#51-provider-pattern-context-api)\
+5. [Provider Pattern](#5-provider-pattern)
+ 5.1. [Provider Pattern: Context API](#51-provider-pattern-context-api)
  5.2. [Provider Pattern: Higher Order Components](#52-provider-pattern-higher-order-components)
 
 
