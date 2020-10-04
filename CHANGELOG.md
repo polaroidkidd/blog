@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/polaroidkidd/blog/compare/v1.3.0...v1.3.1) (2020-10-04)
+
+
+### Bug Fixes
+
+* updated blog entries to new format for automatic ToC generation ([4cd6a92](https://github.com/polaroidkidd/blog/commit/4cd6a9262221875a81272550049262466edc6a10))
+
 ## [1.3.0](https://github.com/polaroidkidd/blog/compare/v1.2.6...v1.3.0) (2020-08-22)
 
 
