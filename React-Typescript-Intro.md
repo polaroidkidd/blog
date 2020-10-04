@@ -1,29 +1,13 @@
 # React TypeScript Basics
 This contents of this blog are based off of the excellent [course](https://www.scotttolinski.com/) by [Scott Tolinski](https://www.scotttolinski.com/)
 
+
 **Author: Daniel Einars**
 
 **Date Published: 07.02.2020**
 
 **Date Edited: 17.04.2020**
 
-## Table of Contents
-1. [Overview](#1.-Overview)
-2. [Typed Props](#2.-Typed-Props)
-3. [Default and/or Optional Props](#3.-Default-and/or-Optional-Props)
-4. [Types](#4.-Types)
-5. [Function Props](#5.-Function-Props)
-6. [React Events in TypeScript](#6.-React-Events-in-TypeScript)
-7. [Typing Children Props](#7.-Typing-Children-Props)
-8. [Typing React.useState](#8.-Typing-React.useState)
-9. [Using React.useRef and typing dom elements](#9.-Using-React.useRef-and-typing-dom-elements)
-10. [Using React.useReducer](#10.-Using-React.useReducer)
-11. [React.useEffect and Custom Hooks](#11.-React.useEffect-and-Custom-Hooks)
-12. [Generics](#12.-generics)
-13. [React.useContext](#13.-React.useContext)
-14. [Class Based Components](#14.-Class-Based-Components)
-15. [Interfaces vs Types](#15.-Interfacesvs-Types)
-16. [Using untyped libraries](#16.-Using-untyped-libraries)
 
 ## 1. Overview
 
