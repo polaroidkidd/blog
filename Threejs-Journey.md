@@ -4,9 +4,9 @@ The contents of this article/summary are based off of the excelent course [Three
 
 **Author: Daniel Einars**
 
-**Date Published: 25.15.2022**
+**Date Published: 25.10.2022**
 
-**Date Edited: 25.15.2022**
+**Date Edited: 25.10.2022**
 
 
 ##  1. Basics
@@ -162,3 +162,28 @@ tick()
 ```
 
 Note that you can also use the js native way and get the current time using `Date.now()`, calculate the delta within the `tick()` function and then apply delta to the rotation. **Do not do this when using the `THREE.Clock()` function as it breaks things**
+
+### 1.9 Controls
+This chapter largly deals with moving the camera around. There are a number of different controls provided by threejs (look at the [documentation](https://threejs.org/docs/index.html?q=controls#examples/en/controls/ArcballControls) for more information). I'm largly copy&pasting these descriptions
+
+
+  * [ArcballControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/ArcballControls): Arcball controls allow the camera to be controlled by a virtual trackball with full touch support and advanced navigation functionality.
+  * [DragControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/DragControls):  This class can be used to provide a drag'n'drop interaction.
+  * [FlyControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/FlyControls): FlyControls enables a navigation similar to fly modes in DCC tools like Blender. You can arbitrarily transform the camera in 3D space without any limitations (e.g. focus on a specific target). These are controls which are used when flying a spaceship.
+  * [FirstPersonControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/FirstPersonControls): Like FlyControls, but with a fixed "up" axis. The FlyControls can do a barrel roll, the FirstPersonControls cannot
+  * [OrbitControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/OrbitControls):  Orbit controls allow the camera to orbit around a target.
+  * [PointerLockControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/PointerLockControls): The implementation of this class is based on the Pointer Lock API. PointerLockControls is a perfect choice for first person 3D games as it centers and hides the mouse cursor.
+  * [TrackballControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/TrackballControls): https://threejs.org/docs/index.html?q=controls#examples/en/controls/TrackballControls
+  * [TransformControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/TransformControls): This class can be used to transform objects in 3D space by adapting a similar interaction model of DCC tools like Blender. Unlike other controls, it is not intended to transform the scene's camera.***TransformControls expects that its attached 3D object is part of the scene graph.***
+  * [OrbitControls](https://threejs.org/docs/#examples/en/controls/OrbitControls): These allow a user to orbit around. This class comes with a bunch of extra configuration options which makes the use more natural.
+
+### 1.10 Orbit Controls
+For some weird reason you have to import the controls from the examples directory like this
+
+```javascript
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+const controls = new OrbitControls(camera, canvas) // attach it to the canvas and the camera
+```
+
+
+*... to be continued ...*
