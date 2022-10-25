@@ -12,12 +12,12 @@ The contents of this article/summary are based off of the excelent course [Three
 ## 1. Basics
 This part summarises my notes on all the basics regarding the use of threejs such as creating a scene, transforming objects, animations etc.
 
-### 1.01. Basic Scene
+### 1.1. Basic Scene
 Before we do anything, we need to create a scene. This is essentially the container for everything else and you create it like this
 ```javascript
 const scene = new THREE.Scene()
 ```
-### 1.02. Objects
+### 1.2. Objects
 
 Objects are things you render to the scene. They can be anything from simple shapes (pyramids, cubes, spheres etc.) to imported models, particles, lights etc.
 In order to create a simple box we need the geometry (shape) and the mesh (what the surface looks like)
@@ -31,7 +31,7 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
 
-### 1.03. Camera
+### 1.3. Camera
 In order to actually see anything, we need a camera to view things. There are a bunch of different cameras for different purposes, but they all inherit from the base camera class (don't use this one, but one of the specifics). From the docs: 
   * ArrayCamera:  ArrayCamera can be used in order to efficiently render a scene with a predefined set of cameras. This is an important performance aspect for rendering VR scenes. An instance of ArrayCamera always has an array of sub cameras. It's mandatory to define for each sub camera the viewport property which determines the part of the viewport that is rendered with this camera.
   * CubeCamera: Creates 6 cameras that render to a WebGLCubeRenderTarget.
@@ -57,7 +57,7 @@ camera.position.z = 3
 scene.add(camera)
 ```
 
-### 1.04. Transforming Objects
+### 1.4. Transforming Objects
 
 We have four properties which we can use to transform objects. Those are
 
@@ -70,7 +70,7 @@ We can change an object's position in two ways. You can either set the `x`, `y` 
 
 Since the position property is a Vector3 class, it also has other functions such as `position.length()` which will return the vector's length. You can use it to calculate the distance to the camera by using `mesh.position.distanceTo(camera.position)` and you can also normalize the vector by calling the `mesh.position.normalize()` function.
 
-### 1.05. Axes Helper
+### 1.5. Axes Helper
 
 Sometimes it's useful to know which axis is whereas you might have rotated the camera as well as the object. In order to have this appear, use the following code snippit
 ```javascript
@@ -78,7 +78,7 @@ const axesHelper = new THREE.AxesHelper(2) // takes size as an argument
 scene.add(axesHelper)
 ```
 
-### 1.06. Rotating and Scaling Objects
+### 1.6. Rotating and Scaling Objects
 
 Scaling objects is pretty straightforward. Do this by setting the scale value of the appropriate axis like this
 ```javascript
@@ -106,7 +106,7 @@ In order to avoid this you simply have to change the order in which rotations ar
 object.rotation.reorder('yxz')
 ```
 
-### 1.07. Grouping Objects
+### 1.7. Grouping Objects
 
 Sometimes you'll have spent a large amount of time developing a scene, only to figure out that a part of it is too small, or needs to be repositioned. Because you don't want to move every item individually, you can add them to a group and apply all transformations as a group. The code for this is fairly simple:
 
@@ -138,7 +138,7 @@ cube3.position.x = 1.5 // transformation is applied to all items in the group
 group.add(cube3)
 ```
 
-### 1.08. Animations
+### 1.8. Animations
 As with any animation in javascript we need to make use of `requestAnimationFrame`. This function accepts a function, which is called when the next frame is available. Any code you need to run on every frame should be placed inside this. Because some mashines are faster than others and you don't want to waste resources, you should aim for animation at 60fps. Some libraries provied functions for that (such as gsap), but threejs also provides a solution. Animating simple things is very similar to animating anything else using javascript. 
 ```javascript
 // get the threejs clock
@@ -163,7 +163,7 @@ tick()
 
 Note that you can also use the js native way and get the current time using `Date.now()`, calculate the delta within the `tick()` function and then apply delta to the rotation. **Do not do this when using the `THREE.Clock()` function as it breaks things**
 
-### 1.09. Controls
+### 1.9. Controls
 This chapter largly deals with moving the camera around. There are a number of different controls provided by threejs (look at the [documentation](https://threejs.org/docs/index.html?q=controls#examples/en/controls/ArcballControls) for more information). I'm largly copy&pasting these descriptions
 
 
