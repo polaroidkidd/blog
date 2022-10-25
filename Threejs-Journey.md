@@ -177,13 +177,3 @@ This chapter largly deals with moving the camera around. There are a number of d
   * [TransformControls](https://threejs.org/docs/index.html?q=controls#examples/en/controls/TransformControls): This class can be used to transform objects in 3D space by adapting a similar interaction model of DCC tools like Blender. Unlike other controls, it is not intended to transform the scene's camera.***TransformControls expects that its attached 3D object is part of the scene graph.***
   * [OrbitControls](https://threejs.org/docs/#examples/en/controls/OrbitControls): These allow a user to orbit around. This class comes with a bunch of extra configuration options which makes the use more natural.
 
-### 1.10 Orbit Controls
-For some weird reason you have to import the controls from the examples directory like this
-
-```javascript
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-const controls = new OrbitControls(camera, canvas) // attach it to the canvas and the camera
-```
-
-
-*... to be continued ...*
