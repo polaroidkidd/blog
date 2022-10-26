@@ -8,6 +8,7 @@ This contents of this blog are based off of the excellent [course](https://www.s
 
 **Date Edited: 17.04.2020**
 
+## Table of contents
 
 ## 1. Overview
 
