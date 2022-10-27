@@ -9,8 +9,6 @@ The contents of this article/summary are based off of the excelent course [Advan
 **Date Edited: 26.08.2020**
 
 
-## Table of contents
-
 ##  1. Intro
 This chapter serves as a small warm-up
 

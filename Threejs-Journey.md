@@ -8,7 +8,6 @@ The contents of this article/summary are based off of the excelent course [Three
 
 **Date Edited: 25.10.2022**
 
-## Table of contents
 
 ## 1. Basics
 This part summarises my notes on all the basics regarding the use of threejs such as creating a scene, transforming objects, animations etc.
