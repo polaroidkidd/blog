@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/polaroidkidd/blog/compare/v1.4.0...v1.5.0) (2022-10-30)
+
+
+### Features
+
+* updated article structure ([533e573](https://github.com/polaroidkidd/blog/commit/533e573dd8c8c153d4e952d62bf9096bad6c4fca))
+* updated threejs-journey documentation ([14e36e2](https://github.com/polaroidkidd/blog/commit/14e36e201f7d9f9166842ec05f45547b583c85a1))
+
+
+### Bug Fixes
+
+* remove leading 0 ([3db07bd](https://github.com/polaroidkidd/blog/commit/3db07bd71e521152f41928420a185d625514e01d))
+* test numbering chapters ([bef9c2d](https://github.com/polaroidkidd/blog/commit/bef9c2d843bee904f3530e6244fafa160393b609))
+* test numbering chapters by adding a postfix fullstop ([ee3c420](https://github.com/polaroidkidd/blog/commit/ee3c42015fa61b998ec7eda43db4f8895f0c8020))
+* try different fix approach ([3bbe1a2](https://github.com/polaroidkidd/blog/commit/3bbe1a28d97be4face2727960b95a3d4e43e39ac))
+
 ## [1.4.0](https://github.com/polaroidkidd/blog/compare/v1.3.1...v1.4.0) (2022-10-25)
 
 
