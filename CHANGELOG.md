@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/polaroidkidd/blog/compare/v1.5.0...v1.6.0) (2022-11-01)
+
+
+### Features
+
+* debounce vs throttle ([253e8ed](https://github.com/polaroidkidd/blog/commit/253e8edc21215a0926d68fdc6866d6f33dcdd0b5))
+* published theme context article ([b55c792](https://github.com/polaroidkidd/blog/commit/b55c79248ea51dbe2876f80f65611cd66c9b1003))
+
 ## [1.5.0](https://github.com/polaroidkidd/blog/compare/v1.4.0...v1.5.0) (2022-10-30)
 
 
