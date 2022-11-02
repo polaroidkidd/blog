@@ -12,9 +12,9 @@ This contents of this blog are based off of the excellent [course](https://www.s
 ## 1. Overview
 
 After a quick introduction to Typescript I'll highlight some brief examples & explanations of Typescript usage with React Children, React Hooks and  HTMLElements (with and without React). 
-Finally I'll sum up the differences between `Interface` and `Type` (and when to use which) as well as showing how to use untyped libraries in Typescript projects.  
+Finally, I'll sum up the differences between `Interface` and `Type` (and when to use which) as well as showing how to use untyped libraries in Typescript projects.  
 
-##  2. Typed Props
+## 2. Typed Props
 
 `type Props` can be declared as a `type` or as an `interface`. 
 
@@ -68,7 +68,7 @@ export const Header: React.FC<Props> = ({title, isActive}) => {
 };
 ```
 
-##  3. Default and/or Optional Props
+## 3. Default and/or Optional Props
 
 Props can be marked as optional using the `?`. If this is done, the component requires the prop to contain a default value.
 
@@ -91,7 +91,7 @@ export const Header: React.FC<Props> = ({title, isActive= true}) => {
 ```
 
 
-##  4. Types
+## 4. Types
 
 This video covers some common types. It does not go into specifics about how you would create these when you'd actually use the `<Header [...]/>` component.
 
@@ -119,7 +119,7 @@ type Props = {
 ```
 
 
-##  5. Function Props
+## 5. Function Props
 
 
 Way in which a function can be typed.
@@ -176,7 +176,7 @@ export default App;
 ```
 
 
-##  6. React Events in TypeScript
+## 6. React Events in TypeScript
 
 React has its own set of Events, such as React.MouseEvent. This will accept events for all clicks (bad)
 ```typescript jsx
@@ -198,7 +198,7 @@ type Props = {
 ```
 
 
-##  7. Typing Children Props
+## 7. Typing Children Props
 
 The example below is receiving a `string` element as a child. 
 
@@ -234,7 +234,7 @@ export const Button: React.FC<Props> = ({onClick, children}) => {
 };
 ```
 
-##  8. Typing React.useState
+## 8. Typing React.useState
 
 Because the default state is set to '', typescript will automatically recognized that the `useState` instance  accepts texts values. TypeScript is doing it's job implicity.
 ```typescript jsx
@@ -265,7 +265,7 @@ export const Input = () => {
 Recommendation is to set the initial type to what the state expects. If that isn't enough, union types can be used.
 
 
-##  9. Using React.useRef and typing dom elements
+## 9. Using React.useRef and typing dom elements
 
 Type refs by declaring what type of HTML Element they will be attached to. Adding the "!" to the end of "null" declares it as a read-only value (very typical for refs)
 
@@ -284,7 +284,7 @@ export const Input = () => {
 };
 ```
 
-##  10. Using React.useReducer
+## 10. Using React.useReducer
 
 Typing `useReducer` is no different than previous standard typing. You define types for `Action` & `State` and assign these to the `initialState` and the `reducer` function. Optionally add a `payload` to the action which can be typed as anything previously covered.
 
@@ -357,7 +357,7 @@ type ActionExtended =
 
 ```
 
-##  11. React.useEffect and Custom Hooks
+## 11. React.useEffect and Custom Hooks
 
 
 This custom hook es designed to execute some code depending on weather a ref is clicked or not (close modal type).
@@ -396,12 +396,12 @@ export { useClickOutside };
 ```
 
 
-##  12. Generics
+## 12. Generics
 
 By example of the `useClickOutside` hook. Before we declared its `ref` type as `ref: React.MutableRefObject<HTMLDivElement>`. This did work, but did not allow us to use it on elements other than `<div/>`. Because `HTMLDivElement` extends `HTMLElement`, we can declare the `ref` in the hook as `ref: React.MutableRefObject<HTMLElement>`. When it's actually used, the ref can contain any `HTMLElement` and TS will not throw any errors.
 
 
-##  13. React.useContext
+## 13. React.useContext
 
 TS implicitly types the declared context without having to type it. Below is an example implementation.
 
@@ -542,7 +542,7 @@ export const ReducerButtons = () => {
 ```
 
 
-##  14. Class Based Components
+## 14. Class Based Components
 
 Classes and FC are quite similar. The following example illustrates a simple example.
 
@@ -573,7 +573,7 @@ class BigC extends Component<Props, State> {
 export default BigC;
 ```
 
-##  15. Interfaces Types
+## 15. Interfaces Types
 
 The gist from several articles is
  > When you come from OOP, use `interface`, if you're into functional programming, go for `type`
@@ -593,7 +593,7 @@ Pros for Interfaces:
 
 [Here](https://www.educba.com/typescript-type-vs-interface/) are some helpful tips and tricks to help you decide. In the end, what ever you choose, ***stick to it!***
  
-##  16. Using untyped libraries
+## 16. Using untyped libraries
  
 Some libraries you'd like touse in your projects don't provide their own types. In this scenario you have two options:
  

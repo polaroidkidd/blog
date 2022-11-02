@@ -9,10 +9,10 @@ The contents of this article/summary are based off of the excelent course [Advan
 **Date Edited: 26.08.2020**
 
 
-##  1. Intro
+## 1. Intro
 This chapter serves as a small warm-up
 
-###  1.1. Basic Toggle Component
+### 1.1. Basic Toggle Component
 
 When updating state in a component, which references its past state, always use an updater function. React sometimes puts state changes in batches, and without the updater function you cannot guarantee what the state currently is.
 
@@ -41,7 +41,7 @@ The `changeHandler` function can be passed in by the parent component and notify
   2. I can provide change handlers to state update functions through props
 
 
-##  2. Compound Components
+## 2. Compound Components
 
 Compound components have two characteristics:
 
@@ -60,7 +60,7 @@ Compound components are similar to html select elements:
 ```
 The `select` element can be used on its own, but it really only becomes useful when used in conjunction with the `option` elements.
 
-###  2.1. React Compound Component: Basic
+### 2.1. React Compound Component: Basic
 Compound components can be defined in a similar fashion. The `static` instances can be iterated over using `React.Children.map` or `React.Children.forEach`. In this instance we use the `map` function because we want to return elements (as it is being done in the `render()` function) using the `React.cloneElement` function. 
 
 The `React.cloneElement` function creates a copy of the passed in component (in this case `static On`, `static Off` or `static Button`) and passing additional props to them like so:
@@ -111,7 +111,7 @@ class Toggle extends React.Component {
   2. I can clone React elements using `React.cloneElement` and pass in new props (by passing them in).
   3. This method stops me from having to implement conditional rendering (such as ` this.props.renderMessage ? this.props.renderMessage : undefined`)
   
-###  2.2. React Compound Component: Flexible
+### 2.2. React Compound Component: Flexible
 
 The drawback of the above implementation is that it can not handle undefined elements, such as wrapping one of the Compounds in a `div` tag.
 
@@ -191,11 +191,11 @@ We use the state because we want to hinder unnecessary rendering (react only ren
   1. That I can use `React.Context` in small components as well as in large applications. It remains isolated to this component.
   2. How I can provide shared state to specific compound components.
 
-##  3. Render Props
+## 3. Render Props
 
 This chapter deals with render props and answers which problem they solve and how to use them.
 
-###  3.1. Render Props: Basic
+### 3.1. Render Props: Basic
 
 The idea behind render props is to give the user implementing the responsibillity and freedom to configure how the component renders. 
 This way the user has the possibillity to add additional functionallity to the component without having to re-implement anything. 
@@ -249,7 +249,7 @@ function Usage({
   2. I *want* to render every state change.
 
 
-###  3.2. Render Props: Prop Collections
+### 3.2. Render Props: Prop Collections
 
 When the responsibility of rendering shifts from the library to the user, the use is in charge of applying the correct props to the render prop components. In order to do this, it is helpful to provide `prop collection functions`. These functions retrieve the props, which are necessary for the components using render props to work. In the `Toggle` class we now provide a `togglerProps` object, which returns all the props reqired to use the `Toggle` class functionallity. 
 ```jsx
@@ -303,7 +303,7 @@ function Usage({
   1. I can provide functionallity to users implementing my code in wrapped functions. They do not have to call every prop explicity. 
 
 
-###  3.3. Render Props: Prop Getters
+### 3.3. Render Props: Prop Getters
 
 The problem with prop collections on their own is that you are not allowed to overwrite any props which are in the collection. In the above example the `togglerProps` object defines an `onClick` function, which is applied to the button via `...togglerProps`. If I want to define a custom onClick function (for example if I wanted to track clicks), I would have to define this `onClick` function explicity on the button. However, this overwrites the `onClick` function provided by the `togglerProps` object as shown behlow.
 
@@ -404,18 +404,18 @@ const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
 
 
 
-##  4. Controlling State
+## 4. Controlling State
 
 This chapter deals with controlling state. 
 
-###  4.1. Controlling State: State Initializers
+### 4.1. Controlling State: State Initializers
 
 When running applications you want to be able to control the initial state as well as be able to reset the state to the initial state. This exersize asks the user to allow for a passed initial state, adds a default initial state and adds a reset function, which resets the state to the passed initial state or the default state.
 
 #### What I learnt:
   1. Be explicit about the initial state. Ideally have it in a separate object. When you change that `initialState` object, you won't have to worry about changing the initial state in a buch of other places.
  
-###  4.2. Controlling State: State Reducer
+### 4.2. Controlling State: State Reducer
 
   > If a render prop enables users to control how things are rendered, state reducers enable users to control how the logic works. (Kent C. Dodds)
 
@@ -475,7 +475,7 @@ There are a couple of things going on here, so let me go into some detail. Like 
   2. I can now write components which could either manage their own state, or allow the user to manage their state, by writing a custom `internalSetState` function, which accept external state reducer functions. Writing state based components in this way makes them more reusable, especially when combining this with the render prop pattern.
 
 
-###  4.3. Controlling State: State Reducers with Change Types
+### 4.3. Controlling State: State Reducers with Change Types
 
 In this section we add a `type` to the toggle and reset button (`default`, `reset` `forced`) to allow the user to specify more detailed behavior. The usage is updated by including a `force update` button.
 
@@ -503,7 +503,7 @@ toggleStateReducer = (state, changes) => {
 [...]
 ```
 
-###  4.4. Controlling State: Control Props
+### 4.4. Controlling State: Control Props
 
 This section elaborates on how to facilitate state management through props. This allows to determine a component's behavior through props and/or through state. 
 If you want to be able to do both, you have to check if a state update is coming in through props or if it's part of the state. This can easily be done by checking if the prop  in question is `undefined`.
@@ -538,11 +538,11 @@ In the example by Kent, he worked the code required to use an external reducer a
   1. Clever uses for `Object`
   2. How to merge internal and external states.
   
-##  5. Provider Pattern
+## 5. Provider Pattern
 
 This brief chapter will focus on solving prop drilling through usage of the `Context API` and *Higher Order Components*.
 
-###  5.1. Provider Pattern: Context API
+### 5.1. Provider Pattern: Context API
 
 This brief example shows how to use the context API. it is largly similar to compund components, with the exception that a pure context API implementation breaks render props. In order to do that we have to check if we're passing standard react "children" or actual functions. 
 

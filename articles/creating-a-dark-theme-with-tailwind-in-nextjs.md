@@ -37,7 +37,7 @@ usage we're not causing any harm!"*
 
 For everyone who just wants to copy&paste everything just scroll to the bottom for the completed work.
 
-### 2.1 Creating the Context.
+### 2.1. Creating the Context.
 
 This is fairly straight forward, so I won't dive into any details.
 
@@ -52,7 +52,7 @@ export const ThemeContext = createContext({
 });
 ```
 
-### 2.2 The Theme Context Provider
+### 2.2. The Theme Context Provider
 
 The Context Provider has to handle the following two cases.
 
@@ -70,7 +70,7 @@ The Context Provider has to handle the following two cases.
 We're going to need two functions. One to initialize the theme and handle cases `1` and `2`. And a function to actually
 toggle the theme.
 
-#### 2.2.1 Initializer
+#### 2.2.1. Initializer
 
 The `ThemeContextProvider` keeps track of which theme we currently have enabled in its own useState call. You could rely
 on the cookie exclusively, but I found that to be a bit of a pain. Hence, we
@@ -111,7 +111,7 @@ const initialThemeHandler = useCallback((): void => {
 useEffect(() => initialThemeHandler(), [initialThemeHandler]);
 ```
 
-#### 2.2.2 Theme toggle function
+#### 2.2.2. Theme toggle function
 
 This is the function which the context will provide to other components via (say it with me) *dependency injection*.
 
