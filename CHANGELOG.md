@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/polaroidkidd/blog/compare/v1.6.0...v1.6.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* typos in naming chapter naming convention ([95fc742](https://github.com/polaroidkidd/blog/commit/95fc7422945813326dac737673c834db0c8e7157))
+
 ## [1.6.0](https://github.com/polaroidkidd/blog/compare/v1.5.0...v1.6.0) (2022-11-01)
 
 
