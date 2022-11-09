@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/polaroidkidd/blog/compare/v1.6.1...v1.7.0) (2022-11-09)
+
+
+### Features
+
+* rounding in javascript ([fa20193](https://github.com/polaroidkidd/blog/commit/fa2019370d92f2b8f3882326cd51cb45c50331af))
+
+
+### Bug Fixes
+
+* debounce article missing return ([b72a855](https://github.com/polaroidkidd/blog/commit/b72a8555e6d0aefd0b3ad57877b0ef248bbac711))
+
 ### [1.6.1](https://github.com/polaroidkidd/blog/compare/v1.6.0...v1.6.1) (2022-11-02)
 
 
