@@ -29,6 +29,7 @@ function debounce(callback, delay = 500){
       callback(...args)
     }, delay)
   }
+  return debounced
 }
 ```
 
