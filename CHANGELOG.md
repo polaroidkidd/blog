@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/polaroidkidd/blog/compare/v1.7.0...v1.8.0) (2023-01-18)
+
+
+### Features
+
+* legacy jquery ([b677976](https://github.com/polaroidkidd/blog/commit/b677976705a1606a9c185e8b1e61d23ab6df234f))
+
 ## [1.7.0](https://github.com/polaroidkidd/blog/compare/v1.6.1...v1.7.0) (2022-11-09)
 
 
