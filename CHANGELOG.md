@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/polaroidkidd/blog/compare/v1.9.0...v1.10.0) (2023-02-05)
+
+
+### Features
+
+* microservices article section on query service ([c976458](https://github.com/polaroidkidd/blog/commit/c976458e5599ab4e6b707aece748d1778f181d9e))
+
 ## [1.9.0](https://github.com/polaroidkidd/blog/compare/v1.8.0...v1.9.0) (2023-02-05)
 
 
