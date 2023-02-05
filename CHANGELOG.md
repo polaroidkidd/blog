@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/polaroidkidd/blog/compare/v1.8.0...v1.9.0) (2023-02-05)
+
+
+### Features
+
+* microservices article ([9b5998f](https://github.com/polaroidkidd/blog/commit/9b5998f11fed779e0a23f8e2ccd0c16f2f6ec966))
+
 ## [1.8.0](https://github.com/polaroidkidd/blog/compare/v1.7.0...v1.8.0) (2023-01-18)
 
 
