@@ -32,7 +32,9 @@ We'll be using `createContext` in order to keep track of the theme and witch it 
 
 > *But why are we using react's context? It causes a lot of rerenders and.. stuff*!
 
-.. to which I say: *"nu-uh! react's context is a dependency injection tool and if we don't bastardise it's intended
+.. to which I say:
+
+> *"nu-uh! react's context is a dependency injection tool and if we don't bastardise it's intended
 usage we're not causing any harm!"*
 
 For everyone who just wants to copy&paste everything just scroll to the bottom for the completed work.
@@ -41,7 +43,7 @@ For everyone who just wants to copy&paste everything just scroll to the bottom f
 
 This is fairly straight forward, so I won't dive into any details.
 
-```typescript jsx
+```tsx
 
 const initialState = false; // we start the first-time visitors up on the light theme
 
@@ -78,7 +80,7 @@ have `const [isDarkTheme, setIsDarkTheme] = useState(initialState);` at the very
 call `initialThemeHandler` whenever the user decided to change the theme and we don't have to separate
 a `initialThemeHandler` function from a `setTheme` function.
 
-```typescript jsx
+```tsx
   const [isDarkTheme, setIsDarkTheme] = useState(initialState);
 
 const initialThemeHandler = useCallback((): void => {
@@ -115,7 +117,7 @@ useEffect(() => initialThemeHandler(), [initialThemeHandler]);
 
 This is the function which the context will provide to other components via (say it with me) *dependency injection*.
 
-```typescript jsx
+```tsx
   function toggleThemeHandler(): void {
   // get the current theme cookie. We know it exists since this will 100% of the time run after the `initialThemeHandler` function
   const themeCookie = Cookies.get("theme");
@@ -150,7 +152,7 @@ classes.
 
 Lastly we return the `ThemeContext.Provider` like this
 
-```typescript jsx
+```tsx
   return (
   <ThemeContext.Provider
     value={
@@ -165,7 +167,7 @@ Lastly we return the `ThemeContext.Provider` like this
 
 Next we need to *initialize* the theme. That should handle the following scenarios
 
-```typescript jsx
+```tsx
   const initialThemeHandler = useCallback((): void => {
   // Get current cookie theme.
   const themeCookie = Cookies.get("theme");
@@ -201,7 +203,7 @@ useEffect(() => initialThemeHandler(), [initialThemeHandler]);
 Since we want *all* our components to be able to access the current theme and toggle it, we're going to wrap our entire
 nextjs app in the provider. To do this we create a `_app.tsx` file and wrap all components in the provider like this
 
-```typescript jsx
+```tsx
 export default function Root({Component, pageProps}: AppProps) {
   return (
     <ThemeContextProvider>
@@ -213,7 +215,7 @@ export default function Root({Component, pageProps}: AppProps) {
 
 For now, we'll be using an old-fashioned button to toggle the theme.
 
-``` typescript jsx
+``` tsx
 
 interface IThemeTogglerContext{
     isDarkTheme: boolean;
@@ -254,7 +256,7 @@ You can then place this button anywhere you want and it'll update the theme. As 
 
 Because I want to see some sort of small transition when I change themes, I also created a `_document.tsx` file and added some tailwind classes, which make the theme switching a pleasent experience. Here's the completed work
 
-```typescript jsx
+```tsx
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class _Document extends Document {
@@ -281,7 +283,7 @@ export default class _Document extends Document {
 
 There you go, that's all it took! In case you want to try it out, here's the complete `ThemeContext` component:
 
-```typescript jsx
+```tsx
 
 import type { ReactElement, ReactNode } from "react";
 import { createContext, useCallback, useEffect, useState } from "react";

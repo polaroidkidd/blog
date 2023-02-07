@@ -6,8 +6,9 @@ This contents of this blog are based off of the excellent [course](https://www.s
 
 **Date Published: 07.02.2020**
 
-**Date Edited: 17.04.2020**
 
+### UPDATE
+`React.FC` isn't really used anymore and I've removed/replaced all examples using this. 
 
 ## 1. Overview
 
@@ -30,7 +31,7 @@ Basically, you can extend existing interfaces which might become confusing in a 
 
 Example:
 
-```typescript jsx
+```tsx
 interface IUser {
   firstName: string
   lastName: string
@@ -49,7 +50,7 @@ const user: IUser = {
 
 Now to the course. This is how you declare and use a `type` in a Functional TS React Component
 
-```typescript jsx
+```tsx
 import React from 'react';
 
 // type declaration:
@@ -58,7 +59,7 @@ type Props = {
   isActive: boolean
 }
 
-export const Header: React.FC<Props> = ({title, isActive}) => {
+export const Header= ({title, isActive}:Props) => {
   return (
     <>
       <h1>{title}</h1>
@@ -72,7 +73,7 @@ export const Header: React.FC<Props> = ({title, isActive}) => {
 
 Props can be marked as optional using the `?`. If this is done, the component requires the prop to contain a default value.
 
-```typescript jsx
+```tsx
 import React from 'react';
 
 
@@ -82,7 +83,7 @@ type Props = {
 }
 
 // isActive is now optional and therefor needs a default argument in case this isn't provided.
-export const Header: React.FC<Props> = ({title, isActive= true}) => {
+export const Header = ({title, isActive= true}:Props) => {
 
 [...]
 
@@ -96,7 +97,7 @@ export const Header: React.FC<Props> = ({title, isActive= true}) => {
 This video covers some common types. It does not go into specifics about how you would create these when you'd actually use the `<Header [...]/>` component.
 
 
-```typescript jsx
+```tsx
 // User Type
 type User = {
   name: string;
@@ -124,7 +125,7 @@ type Props = {
 
 Way in which a function can be typed.
 
-```typescript jsx
+```tsx
 import React from 'react';
 
 
@@ -141,7 +142,7 @@ type Props = {
 }
 
 
-export const Button: React.FC<Props> = ({onClick}) => {
+export const Button = ({onClick}: Props) => {
   return <button onClick={() => onClick("hi there")}>Click Me</button>;
 };
 ```
@@ -149,13 +150,13 @@ export const Button: React.FC<Props> = ({onClick}) => {
 
 Accompanying App.tsx. Notice that I don't pass in the value to be logged in App.tsx but in Button.tsx
 
-```typescript jsx
+```tsx
 import React from 'react';
 import './App.css';
 import { Header } from './components/Header';
 import { Button } from './components/Button';
 
-const App: React.FC = () => {
+const App = () => {
 
   return (
     <>
@@ -179,7 +180,7 @@ export default App;
 ## 6. React Events in TypeScript
 
 React has its own set of Events, such as React.MouseEvent. This will accept events for all clicks (bad)
-```typescript jsx
+```tsx
 import React from "react"
 
 type Props = {
@@ -188,7 +189,7 @@ type Props = {
 ```
 
 Now it is specified to only accept events from a button click (good)
-```typescript jsx
+```tsx
 import React from "react"
 
 type Props = {
@@ -205,7 +206,7 @@ The example below is receiving a `string` element as a child.
 Because we are passing a string into the button component, this will work. However, down the line it will become difficult because you might want to pass a myriad of various
 components into other components.
 
-```typescript jsx
+```tsx
 import React from 'react';
 
 type Props = {
@@ -220,16 +221,16 @@ export const Button = ({onClick, children: Props}) => {
 };
 ```
 
-In order to solve this, declare the react component with `React.FC<Props>`. Placing the Prop declaration into the arrow handles. Use this only when children are in the mix. Otherwise keep on using the previous syntax. This way it merges the Props which are expected from `React.FC` with the props we declared.
+In order to solve this, declare the react component with `React.FC<Props>` (see Update). Placing the Prop declaration into the arrow handles. Use this only when children are in the mix. Otherwise keep on using the previous syntax. This way it merges the Props which are expected from `React.FC` with the props we declared.
 
-```typescript jsx
+```tsx
 import React from 'react';
 
 type Props = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Button: React.FC<Props> = ({onClick, children}) => {
+export const Button = ({onClick, children}:Props) => {
   return <button onClick={onClick}>{children}</button>;
 };
 ```
@@ -237,7 +238,7 @@ export const Button: React.FC<Props> = ({onClick, children}) => {
 ## 8. Typing React.useState
 
 Because the default state is set to '', typescript will automatically recognized that the `useState` instance  accepts texts values. TypeScript is doing it's job implicity.
-```typescript jsx
+```tsx
 import React from 'react';
 
 export const Input = () => {
@@ -250,7 +251,7 @@ export const Input = () => {
 
 Using the union type brackets (<>) we can define a state to be either of type string OR null. This will still throw an error because "value" can not be null.
 
-```typescript jsx
+```tsx
 import React, { useState } from 'react';
 
 export const Input = () => {
@@ -269,7 +270,7 @@ Recommendation is to set the initial type to what the state expects. If that isn
 
 Type refs by declaring what type of HTML Element they will be attached to. Adding the "!" to the end of "null" declares it as a read-only value (very typical for refs)
 
-```typescript jsx
+```tsx
 import React, { useRef, useState } from 'react';
 
 export const Input = () => {
@@ -289,7 +290,7 @@ export const Input = () => {
 Typing `useReducer` is no different than previous standard typing. You define types for `Action` & `State` and assign these to the `initialState` and the `reducer` function. Optionally add a `payload` to the action which can be typed as anything previously covered.
 
 
-```typescript jsx
+```tsx
 import React, { useReducer } from 'react';
 
 const initialState: State = {rValue: true};
@@ -338,7 +339,7 @@ export const ReducerButtons = () => {
 
 In order to stop the reducers from accepting bad actions, you can type these as well using `UntionTypes`.
 
-```typescript jsx
+```tsx
 type Action = {
   type: 'one' | 'two' // using unionTypes to declare a specific set of allowed actions.
   // Optionally define a payload of any type (object, boolean, etc.)
@@ -366,7 +367,7 @@ It takes a ref to the HTML Element and the handler function. Because the handler
 it has to be declared as standard Mouse/Touch Events (both need to be declared because we could be on a mobile device).
 
 Additionally, because we are mutating the reference, we need to declare the `ref` as a `React.MutableRefObject<HTMLElement>`. 
-```typescript jsx
+```tsx
 
 import React, { useEffect } from 'react';
 
@@ -405,7 +406,7 @@ By example of the `useClickOutside` hook. Before we declared its `ref` type as `
 
 TS implicitly types the declared context without having to type it. Below is an example implementation.
 
-```typescript jsx
+```tsx
 import { createContext } from 'react';
 
 export const initialValues = {
@@ -416,7 +417,7 @@ export const GlobalContext = createContext(initialValues);
 ```
 
 We can use this example in `ReducerButtons.tsx` like this.
-```typescript jsx
+```tsx
 import { useContext } from "react";
 import { GlobalContext } from './GlobalState';
 
@@ -425,7 +426,7 @@ const {rValue} = useContext(GlobalContext);
 
 Attempts to destructor properties, which don't exist, will throw TS errors.
 
-```typescript jsx
+```tsx
 import { useContext } from "react";
 import { GlobalContext } from './GlobalState';
 
@@ -434,7 +435,7 @@ const {does-not-exist} = useContext(GlobalContext);
 
 This works just great for most cases. We can also type the context should we want to.
 
-```typescript jsx
+```tsx
 import { createContext } from 'react';
 
 type InitialValues = {
@@ -456,7 +457,7 @@ component.
 
 The refactored `GlobalState.tsx` component looks like this now
 
-```typescript jsx
+```tsx
 import React, { createContext, useReducer } from 'react';
 
 
@@ -497,7 +498,7 @@ const reducer = (state: State, action: Action) => {
 };
 
 
-export const GlobalProvider: React.FC = ({children}) => {
+export const GlobalProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialValues);
   
   return (
@@ -515,7 +516,7 @@ export const GlobalProvider: React.FC = ({children}) => {
 
 The `ReducerButtons.tsx` component has been updated to work with `GlobalState.tsx`.
 
-```typescript jsx
+```tsx
 import React, { useContext, useRef } from 'react';
 import { useClickOutside } from './useClickOutside';
 import { GlobalContext } from './GlobalState';
@@ -548,7 +549,7 @@ Classes and FC are quite similar. The following example illustrates a simple exa
 
 `type` and `state` definitions are placed inside generic braces (`<` and `>`).
 
-```typescript jsx
+```tsx
 import React, { Component } from 'react';
 
 type State = {
@@ -602,7 +603,7 @@ Some libraries you'd like touse in your projects don't provide their own types. 
 
 An example `*.d.ts` file can look as simple as this:
  
-```typescript jsx
+```tsx
 declare module 'styled-components' // This can allow you to use third-party un-typed libs.
 ```
 
