@@ -300,3 +300,95 @@ app.get(ROUTES.POSTS, async (req: Request, res: Response<IQuerySchema>) => {
   res.send(posts);
 });
 ```
+
+Now we're collecting all the posts and related comments from the query service! Besides being better on the client, this has the added benefit that we can kill the `post` and `comment` service (or they crash/become unavailable for what-ever reason), while still keeping the webapp in a relitively usable state. The user will still be able to see existing posts and comments, just not create new ones. 
+
+
+### 2.2 Adding a feature (comment moderation)
+
+Now we'll be adding a small moderation tool. Essentially we want to flag comments which contain the word "orange". 
+
+Comments will now have state and can be in one of three.
+
+ a) Comment awaiting moderation
+ b) Comment is approved
+ c) Comment is rejected
+ 
+We have some options on how to implement this. We could put the logic moderation logic into the comment service, but that would limit moderation to comments, and we might want to moderate images at a later point. We could put it in the query service, since that's where all comments are loaded from, but that's a bad idea because we're mixing domain logic. This leaves us with integrating a new moderation service. The new commenting workflow will be as follows.
+
+1. User comments (post to comment service)
+2. `Comment` service forwards adds `moderationState: pending` to the new comment and puts it on the event bus
+3. The `eventbus` forwards it to all services, including the new `moderation service` and the `query` service
+4. The `query` service does it's usual thing and persist the new comment
+5. The `moderation` service listens for the event type `CommentCreated`. When an event of that type comes in, the service cheks of the content contains the word orange and updates the comment with the new `moderationState: approved || rejected` and emits a new event called `CommentUpdated` on the event bus
+6. The `query` service listens for the event `CommentUpdated` and updates the content of that comment with the new `moderationState`
+
+The gist of the new moderation service looks like this
+
+```typescript
+import axios from "axios";
+import bodyParser from "body-parser";
+import type { Request, Response } from "express";
+import express from "express";
+import type { ZodError } from "zod";
+
+import type { ICommentModerationState } from "@ms/comments/src/comments.zod";
+import {
+  CommentModerationState,
+  CommentSchemaEvent,
+} from "@ms/comments/src/comments.zod";
+import { Events, ServiceEventEndpoints } from "@ms/event-bus/src/constants";
+import type { IEventSchema } from "@ms/event-bus/src/events.zod";
+
+const app = express();
+app.use(bodyParser.json());
+
+enum ROUTES {
+  EVENTS = "/events",
+}
+
+app.post(
+  ROUTES.EVENTS,
+  async (
+    req: Request<{}, {}, IEventSchema>,
+    res: Response<null | ZodError>
+  ) => {
+    const { body } = req;
+    try {
+      if (body.type === Events.enum.CommentCreated) {
+        const { data: parsedComment } = CommentSchemaEvent.parse(req.body);
+        if (
+          parsedComment.moderationState === CommentModerationState.enum.Pending
+        ) {
+          const status: ICommentModerationState =
+            parsedComment.content.includes("orange")
+              ? CommentModerationState.enum.Rejected
+              : CommentModerationState.enum.Approved;
+
+          await axios.post<IEventSchema>(ServiceEventEndpoints.EVENT_BUS, {
+            type: Events.enum.CommentModerated,
+            data: { ...parsedComment, moderationState: status },
+          });
+        }
+      }
+
+      res.status(200).send();
+    } catch (e) {
+      console.error("Failed at Moderation Service", e);
+      res.status(422).send(e as ZodError);
+    }
+  }
+);
+
+app.listen(4003, () => {
+  console.info('Service "Moderation" is running on port 4003');
+});
+
+
+```
+
+### 2.3 Event Sync
+
+There is one issue though. What happens when a service goes down for some time and then misses out on events? Well, the easiest solution is to query the `event-service` for all the events (or events since a certain timestamp) and process these events. Yes, it'll cost us extra in storage, but it'll be far more efficient to handle this case, since every service can just query the `event-bus` for past events and get back up to speed again. So at this point we're just going to quickly implement storing the events in-memory and allow other services to query them when booting up.
+
+The approach to this is fairly straightforward in this example. We basically store all events which came to the `event-bus` service and add an extra endpoint which allows any service to get all events. Now, when a service boots up, the first thing it will try to do is query the `event-bus` service for all events and parse them accordingly. You can see the full implementation of the example [at this stage in repo](https://github.com/polaroidkidd/microservices-with-node-js-and-react/tree/a5253013cf594040c9ea603ad853a59d1e6d6e1b).
