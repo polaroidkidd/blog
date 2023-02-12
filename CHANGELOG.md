@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/polaroidkidd/blog/compare/v1.10.0...v1.11.0) (2023-02-12)
+
+
+### Features
+
+* moderation service ([dfebb18](https://github.com/polaroidkidd/blog/commit/dfebb1810d728e561c58bafea2f1f493a897abb3))
+
+
+### Bug Fixes
+
+* typoes in articles ([700c026](https://github.com/polaroidkidd/blog/commit/700c026bd20e5e84d9f1ae6eab4145fcf1edf94b))
+
 ## [1.10.0](https://github.com/polaroidkidd/blog/compare/v1.9.0...v1.10.0) (2023-02-05)
 
 
